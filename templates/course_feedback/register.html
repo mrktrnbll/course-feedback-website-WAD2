@@ -1,0 +1,11 @@
+{% extends 'course_feedback/base_account.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Register
+{% endblock %}
+
+{% block body_block %}
+    <a href="{% url 'course_feedback:login' %}"><div id="login_register_box" class="button"><h3>Login</h3></div></a>
+    <h2 class="center">Try pressing some buttons in the header!</h2>
+{% endblock %}

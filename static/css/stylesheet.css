@@ -1,0 +1,95 @@
+body {
+	background-color: #e1e6f5;
+}
+
+#login_box {
+	border-radius: 25px;
+	background: #60a4dc;
+	width: 6vw;
+	left: 92vw;
+	height: 60px;
+	position: absolute;
+	top: 12px;
+}
+
+#register_box {
+	border-radius: 25px;
+	background: #60a4dc;
+	width: 6vw;
+	left: 85vw;
+	height: 60px;
+	position: absolute;
+	top: 12px;
+}
+
+#login_register_box {
+	border-radius: 25px;
+	background: #60a4dc;
+	width: 6vw;
+	left: 73vw;
+	height: 60px;
+	position: absolute;
+	top: 12px;
+}
+
+#home_box {
+	border-radius: 25px;
+	background: #60a4dc;
+	width: 6vw;
+	left: 2vw;
+	height: 60px;
+	position: absolute;
+	top: 12px;
+}
+
+#home_box2 {
+	border-radius: 25px;
+	background: #60a4dc;
+	width: 6vw;
+	left: 21vw;
+	height: 60px;
+	position: absolute;
+	top: 12px;
+}
+
+.button {
+  	transition-duration: 0.4s;
+	color: black;
+}
+
+.button:hover {
+  	background-color: #7d848a;
+	color: #455765;
+}
+
+#heading_box {
+	border-radius: 0px;
+	background: #2686d0;
+	width: 99vw;
+	height: 70px;
+}
+
+#heading_box2 {
+	border-radius: 0px;
+	background: #2686d0;
+	width: 40vw;
+	height: 70px;
+	margin: auto;
+}
+
+h2 {
+	font-weight: bold;
+	position: absolute;
+	text-align: center;
+}
+
+h3 {
+	font-weight: bold;
+	text-align: center;
+	width: 6vw;
+	position: absolute;
+}
+
+.center {
+	text-align: center;
+}

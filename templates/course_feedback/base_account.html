@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" />
+    <head>
+        <title>
+            {% block title_block %}
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+    <div id="heading_box2" class="center">
+        <div class="center">
+            <h2>Campus Opinion</h2>
+        </div>
+        <a href="{% url 'course_feedback:index' %}"><div id="home_box2" class="button"><h3>Home</h3></div></a>
+    </div>
+
+    {% block body_block %}
+    {% endblock %}
+
+    </body>
+</html>

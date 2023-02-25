@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" />
+    <head>
+        <title>
+            {% block title_block %}
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+    <div id="heading_box"><h2 class="center">Campus Opinion</h2>
+        <a href="{% url 'course_feedback:index' %}"><div id="home_box" class="button"><h3>Home</h3></div></a>
+        <a href="{% url 'course_feedback:register' %}"><div id="register_box" class="button"><h3>Register</h3></div></a>
+        <a href="{% url 'course_feedback:login' %}"><div id="login_box" class="button"><h3>Login</h3></div></a>
+    </div>
+
+    {% block body_block %}
+    {% endblock %}
+
+    </body>
+</html>
