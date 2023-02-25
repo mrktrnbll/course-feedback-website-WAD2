@@ -1,5 +1,5 @@
 """
-WSGI config for tango_with_django_project project.
+WSGI config for course-feedback-website-WAD2 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'course-feedback-website-WAD2.settings')
 
 application = get_wsgi_application()

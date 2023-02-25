@@ -1,4 +1,4 @@
-"""tango_with_django_project URL Configuration
+"""course-feedback-website-WAD2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/

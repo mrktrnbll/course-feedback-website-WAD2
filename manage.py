@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'course-feedback-website-WAD2.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
