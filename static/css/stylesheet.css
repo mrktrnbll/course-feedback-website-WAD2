@@ -6,17 +6,18 @@ body {
 	border-radius: 25px;
 	background: #60a4dc;
 	width: 6vw;
-	left: 92vw;
+	left: 91vw;
 	height: 60px;
 	position: absolute;
 	top: 12px;
+	margin: auto;
 }
 
 #register_box {
 	border-radius: 25px;
 	background: #60a4dc;
 	width: 6vw;
-	left: 85vw;
+	left: 84vw;
 	height: 60px;
 	position: absolute;
 	top: 12px;
@@ -65,8 +66,9 @@ body {
 #heading_box {
 	border-radius: 0px;
 	background: #2686d0;
-	width: 99vw;
+	width: 98vw;
 	height: 70px;
+	margin: auto;
 }
 
 #heading_box2 {
@@ -79,7 +81,7 @@ body {
 
 #heading_box_text {
 	font-weight: bold;
-	width: 100vw;
+	width: 98vw;
 	position: absolute;
 	text-align: center;
 }
@@ -104,4 +106,12 @@ h3 {
 
 .center_text {
 	text-align: right;
+}
+
+#main_body_box {
+	border-radius: 0px;
+	background: #2686d0;
+	width: 94vw;
+	height: 80vh;
+	margin: auto;
 }
