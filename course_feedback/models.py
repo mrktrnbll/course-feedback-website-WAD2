@@ -23,7 +23,7 @@ class Course(models.Model):
     lecturer = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     # No CASCADE above as if a Lecturer account is deleted the course is allowed to live
     reviewed = models.BooleanField(default=False)
-    picture = models.ImageField(width_field=400,height_field=400,upload_to='media',null=True)
+    picture = models.ImageField(upload_to='media/',null=True)
 
     def __str__(self):
         return self.courseID
