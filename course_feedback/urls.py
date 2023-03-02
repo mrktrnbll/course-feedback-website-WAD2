@@ -1,7 +1,5 @@
 from django.urls import path
 from course_feedback import views
-from django.conf import settings
-from django.conf.urls.static import static
 
 app_name = 'course_feedback'
 
@@ -9,6 +7,9 @@ app_name = 'course_feedback'
 urlpatterns = [
     path('', views.index, name='index'),
     path('course/', views.course, name='course'),
-    path('login/', views.login, name='login'),
+    path('course/<slug:course_name_slug>/', views.course, name='show_course'), #course would be shown on screen
+    path('login/', views.user_login, name='login'),
     path('register/', views.register, name='register'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('AddCourse', views.AddCourse, name='AddCourse'), #This is where they are going to be adding a course (lecturer)
+    path('logout/', views.user_logout, name='logout'),
+]
