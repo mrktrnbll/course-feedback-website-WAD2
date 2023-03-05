@@ -11,12 +11,39 @@
     {% if user.is_authenticated and user.is_lecturer is None %}
         <p>Your account has been created. Waiting for admin to accept you.</p>
     {% elif user.is_authenticated and user.is_lecturer is True %}
-        <h3>Created Courses</h3>
+        <h2>Created Courses</h2>
     {% elif user.is_authenticated and user.is_lecturer is True %}
-        <h3>Reviewed Courses</h3>
+        <h2>Reviewed Courses</h2>
     {% else %}
-        <p class="center-text">You aren't logged in yet!</p>
+        <p>You aren't logged in yet!</p>
         <p>Log-in to see personalized data</p>
+    {% endif %}
+    {#  add main body boxes showing for showing overall information  #}
+
+    {#  add in user based page filling to allow different users to see different content  #}
+{% endblock %}
+
+{% block home_box_right_block %}
+
+
+    {% if user.is_authenticated and user.is_lecturer is True %}
+        <h2>Create New Course</h2>
+        {#  add in form to add new course #}
+    {% else %}
+        <h2 class="center">Courses</h2>
+        {% if courses %}
+        <ul>
+        <p>Click to review:</p>
+        {% for course in courses %}
+            <li>
+                {#  need a show course view to access the categories  #}
+            </li>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <br />
+            <p>There are no courses present.</p>
+        {% endif %}
     {% endif %}
     {#  add main body boxes showing for showing overall information  #}
 
