@@ -32,14 +32,17 @@
     {% else %}
         <h2 class="center">Courses</h2>
         {% if courses %}
-        <ul>
         <p>Click to review:</p>
-        {% for course in courses %}
-            <li>
-                {#  need a show course view to access the categories  #}
-            </li>
-        {% endfor %}
-        </ul>
+        <nav>
+            <ul>
+            {% for course in courses %}
+                <li>
+                    <img src="{{ course.image }}" alt="Picture of a Course"/>
+                    <a href="{{ course.url }}">{{ course }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
         {% else %}
             <br />
             <p>There are no courses present.</p>

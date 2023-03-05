@@ -143,3 +143,23 @@ h2.center {
 	text-align: center;
 }
 
+#main_home_box_right li {
+	background-color: grey;
+    text-decoration: none;
+    display: inline-block;
+    height: 100px;
+    width: 675px;
+    margin-bottom: 50px;
+}
+
+#main_home_box_right img{
+	text-align: left;
+}
+
+nav ul {
+	height:500px; 
+	width:675px;
+	overflow:hidden;
+	overflow-y:scroll;
+}
+
