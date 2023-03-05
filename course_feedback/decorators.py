@@ -6,7 +6,7 @@ def if_lecturer(view_func):
         if request.user.is_authenticated and (request.user.is_lecturer  is True):
             return view_func(request, *args, **kwargs)
         else:
-            return redirect(redirect(reverse('course_feedback:index'))  # Redirect to a different page if the user is a lecturer or not authenticated
+            return redirect(redirect(reverse('course_feedback:index')))  # Redirect to a different page if the user is a lecturer or not authenticated
     return wrapped_view
 
 def if_student(view_func):

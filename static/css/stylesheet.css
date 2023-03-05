@@ -114,4 +114,29 @@ h3 {
 	width: 94vw;
 	height: 80vh;
 	margin: auto;
+	position: relative;
 }
+
+#main_body_box #main_home_box_left {
+	border-radius: 25px;
+	width: 35%;
+    height: 90%;
+    background: #60a4dc;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+#main_body_box #main_home_box_right {
+	border-radius: 25px;
+	width: 55%;
+    height: 90%;
+    background: #60a4dc;
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+

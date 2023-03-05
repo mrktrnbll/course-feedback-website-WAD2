@@ -5,8 +5,19 @@
     Home
 {% endblock %}
 
-{% block body_block %}
+{% block home_box_left_block %}
 
+
+    {% if user.is_authenticated and user.is_lecturer is None %}
+        <p>Your account has been created. Waiting for admin to accept you.</p>
+    {% elif user.is_authenticated and user.is_lecturer is True %}
+        <h3>Created Courses</h3>
+    {% elif user.is_authenticated and user.is_lecturer is True %}
+        <h3>Reviewed Courses</h3>
+    {% else %}
+        <p class="center-text">You aren't logged in yet!</p>
+        <p>Log-in to see personalized data</p>
+    {% endif %}
     {#  add main body boxes showing for showing overall information  #}
 
     {#  add in user based page filling to allow different users to see different content  #}
