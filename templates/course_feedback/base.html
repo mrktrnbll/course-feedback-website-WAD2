@@ -4,6 +4,7 @@
 <html>
     <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" />
     <head>
+        <link rel="icon" href="static/images/favicon.ico">
         <title>
             {% block title_block %}
             {% endblock %}
@@ -20,7 +21,14 @@
     <br />
     <br />
     <div id="main_body_box">
-
+        <div id="main_home_box_left">
+            {% block home_box_left_block %}
+            {% endblock %}
+        </div>
+        <div id="main_home_box_right">
+            {% block home_box_right_block %}
+            {% endblock %}
+        </div>
     </div>
     {% block body_block %}
     {% endblock %}

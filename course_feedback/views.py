@@ -11,13 +11,13 @@ from django.urls import reverse
 
 
 def index(request):
-    course_list = Course.objects.order_by('-likes')[:5] #retrieves top five courses
+    course_list = Course.objects.all()
     context_dict = {}
     context_dict['courses'] = course_list
     #visitor_cookie_handler(request) - if we want to see the amount of people who will be visiting the site
 
 
-    return render(request, 'course_feedback/home.html')
+    return render(request, 'course_feedback/home.html', context=context_dict)
 
 # def course(request):
 
