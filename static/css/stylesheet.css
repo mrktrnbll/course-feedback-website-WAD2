@@ -154,6 +154,9 @@ h2.center {
 
 #main_home_box_right img{
 	text-align: left;
+	object-fit: contain;
+	width: 98px;
+	height: 98px;
 }
 
 nav ul {
