@@ -7,7 +7,7 @@ class Profile(models.Model):
 
     # Django already has something called is_staff which does something we don't want
     # So I have changed name to isLecturer for clarity
-    is_lecturer = models.NullBooleanField(default = None)
+    is_lecturer = models.NullBooleanField(default=None)
     # Default = None means they are neither student nor lecturer
     # If set to True, then they have lecturer permissions, if set to false they have student permissions
 
@@ -23,7 +23,7 @@ class Course(models.Model):
     lecturer = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     # No CASCADE above as if a Lecturer account is deleted the course is allowed to live
     reviewed = models.BooleanField(default=False)
-    picture = models.ImageField(upload_to='media/',null=True)
+    picture = models.ImageField(upload_to='course_images', null=True)
 
     def __str__(self):
         return self.courseID
