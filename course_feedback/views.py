@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from course_feedback.decorators import if_lecturer, if_student, if_neither
 from django.contrib.auth.models import Group
-from course_feedback.models import Course 
+from course_feedback.models import Course
 from course_feedback.forms import RegisterForm, LoginForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from course_feedback.forms import AddCourse
@@ -34,7 +34,7 @@ def user_login(request):
             if user:
                 if user.is_active:
                     login(request, user)
-                    return redirect(reverse('course_feedback:home'))  #should it be course_feedback:home
+                    return redirect(reverse('course_feedback:index'))  #should it be course_feedback:home
                 else:
                     return HttpResponse("Your Campus Opinion account is disabled.")
             else:
@@ -51,7 +51,7 @@ def if_lecturer(user):
     return user.groups.filter(name='lecturer').exists()
 
 
-@user_passes_test(if_lecturer) 
+@user_passes_test(if_lecturer)
 def my_view(request):
 
     return HttpResponse('This is the lecturer view')
@@ -72,7 +72,7 @@ def my_view(request):
 @if_neither
 def my_view(request):
     return render(request, 'course_feedback/home.html')
-    
+
 
 def register(request):
     registered = False
@@ -123,5 +123,5 @@ def restricted(request):
 #         request.session['last_visit'] = str(datetime.now())
 #     else:
 #         request.session['last_visit'] = last_visit_cookie
-    
-#     request.session['visits'] = visits 
+
+#     request.session['visits'] = visits
