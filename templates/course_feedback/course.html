@@ -14,9 +14,9 @@
     {#  add in user based page filling to allow different users to see different content  #}
     {#  course form  #}
 
-    <form id="course _form" method="post" enctype="multipart/form-data" action="{% url 'course_feedback:course' %}">
+    <form id="course_form" method="post" enctype="multipart/form-data" action=".">
         {% csrf_token %}
-        {{ form }}
+        {{ course_form.as_p }}
         <input type="submit" name="submit" value="Create Course" />
     </form>
 

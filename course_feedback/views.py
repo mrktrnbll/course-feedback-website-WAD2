@@ -3,9 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from course_feedback.decorators import if_lecturer, if_student, if_neither
 from course_feedback.models import Course 
-from course_feedback.forms import RegisterForm, RegisterProfileForm
+from course_feedback.forms import RegisterForm, RegisterProfileForm, AddCourse
 from django.contrib.auth.decorators import login_required
-from course_feedback.forms import AddCourse
 from django.urls import reverse
 # Create your views here.
 
@@ -104,24 +103,21 @@ def register(request):
 @login_required
 def course(request):
     if request.method == 'POST':
-        form = AddCourse(request.POST)
-        print("here")
-        if form.is_valid():
-            form = form.save()
+        course_form = AddCourse(request.POST, request.FILES)
+        print(course_form.is_valid())
+        print(request.FILES['picture'])
+        if course_form.is_valid():
+            course_form.save()
             print(request.FILES)
             if 'picture' in request.FILES:
-                print("its here")
-                form.picture = request.FILES['picture']
-            elif 'photo' in request.method:
-                print('its in photo')
-            form.save()
+                course_form.picture = request.FILES['picture']
+            course_form.save()
             return redirect(reverse('course_feedback:index')) #should it be course_feedback:home
         else:
-            print(form.errors)
+            print(course_form.errors)
     else:
-        form = AddCourse()
-        print("INNN HEEREEE ")
-    return render(request, 'course_feedback/course.html', context={'form': form})
+        course_form = AddCourse()
+    return render(request, 'course_feedback/course.html', context={'course_form': course_form})
 
 
 @login_required

@@ -12,10 +12,12 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password',)
 
+
 class RegisterProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('is_lecturer', )
+        fields = ('is_lecturer',)
+
 
 class LoginForm(forms.ModelForm):
     # username = forms.CharField(help_text="Username")
@@ -25,6 +27,7 @@ class LoginForm(forms.ModelForm):
         model = User
         fields = ('username', 'password',)
 
+
 class AddReview(forms.ModelForm):
     content = forms.CharField(help_text="Enter feedback here.")
 
@@ -32,12 +35,12 @@ class AddReview(forms.ModelForm):
         model = Review
         fields = ('content',)
 
+
 class AddCourse(forms.ModelForm):
-    courseID = forms.CharField()
-    name = forms.CharField()
-    picture = forms.ImageField()
-    reviewed = forms.BooleanField()
+    # courseID = forms.CharField()
+    # name = forms.CharField()
+    # picture = forms.ImageField()
 
     class Meta:
         model = Course
-        fields = ('courseID', 'name', 'lecturer', 'picture', 'reviewed',)
+        fields = ('courseID', 'name', 'lecturer', 'picture')

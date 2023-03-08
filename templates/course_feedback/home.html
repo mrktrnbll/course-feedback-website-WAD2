@@ -7,14 +7,13 @@
 
 {% block home_box_left_block %}
 
-
     {% if not user.is_authenticated %}
         <p>Ask to register or login in order to see more content.</p>
-    {% elif user.is_active and user.is_lecturer is True %}
+    {% elif user.is_active and profile.user.is_lecturer is True %}
         <h2>User will see lecture related content.</h2>
-    {% elif user.is_active  and user.is_lecturer is False %}
+    {% elif user.is_active and profile.user.is_lecturer is False %}
         <h2>User will see student specific content.</h2>
-    {% elif user.is_active and user.is_lecturer is None %}
+    {% elif user.is_active and profile.user.is_lecturer is None %}
         <h2>This is wierd.</h2>
     {% elif user.is_active %}
         <h2>You are here because out is_lecturer implementation is broken.</h2>
@@ -41,8 +40,8 @@
             <ul>
             {% for course in courses %}
                 <li>
-                    <img src="{{ course.image }}" alt="Picture of a Course"/>
-                    <a href="{{ course.url }}">{{ course }}</a>
+                    <img src="{{ MEDIA_URL }}{{ course.picture }}" alt="Picture of a Course"/>
+                    <a>{{ course.courseID }}</a>
                 </li>
             {% endfor %}
             </ul>
