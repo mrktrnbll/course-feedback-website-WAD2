@@ -3,13 +3,19 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from course_feedback.decorators import if_lecturer, if_student, if_neither
 from course_feedback.models import Course 
-from course_feedback.forms import RegisterForm, RegisterProfileForm, LoginForm
-from django.contrib.auth.decorators import login_required, user_passes_test
+from course_feedback.forms import RegisterForm, RegisterProfileForm
+from django.contrib.auth.decorators import login_required
 from course_feedback.forms import AddCourse
 from django.urls import reverse
 # Create your views here.
 
 
+# def if_lecturer(user):
+#     return user.groups.filter(name='lecturer').exists()
+
+
+# @login_required
+# @if_lecturer
 def index(request):
     course_list = Course.objects.all()
     context_dict = {}
@@ -42,15 +48,15 @@ def user_login(request):
     else:
         return render(request, 'course_feedback/login.html')
 
+# @login_required
 def user_logout(request):
     logout(request)
-    return render(request, 'course_feedback/login.html')
-
-# def if_lecturer(user):
-#     return user.groups.filter(name='lecturer').exists()
+    return redirect(reverse('course_feedback:index'))
 
 
-@if_lecturer
+
+# @login_required
+# @if_lecturer
 def my_view(request):
     return HttpResponse('This is the lecturer view')
 
@@ -60,13 +66,13 @@ def my_view(request):
 #     return user.groups.filter(name='student').exists()
 
 
-@if_student
+# @if_student
 def my_view(request):
 
     return HttpResponse('This is the student view')
 
 
-@if_neither
+# @if_neither
 def my_view(request):
     return render(request, 'course_feedback/home.html')
     
@@ -84,6 +90,10 @@ def register(request):
             profile.user = user
             profile.save()
             registered = True
+            if profile.is_lecturer is True:
+                print("lecture is chosen, mention that an admin will need to authenticate at a later date.")
+                ## we will want to add some sort of returning message here to show the user that they
+                ## a lecturer yet
         else:
             print(user_form.errors, profile_form.errors)
     else:
@@ -93,19 +103,34 @@ def register(request):
 
 @login_required
 def course(request):
-    form = AddCourse()
     if request.method == 'POST':
         form = AddCourse(request.POST)
+        print("here")
         if form.is_valid():
-            form.save(commit=True)
+            form = form.save()
+            print(request.FILES)
+            if 'picture' in request.FILES:
+                print("its here")
+                form.picture = request.FILES['picture']
+            elif 'photo' in request.method:
+                print('its in photo')
+            form.save()
             return redirect(reverse('course_feedback:index')) #should it be course_feedback:home
         else:
             print(form.errors)
-    return render(request, 'course_feedback/course.html', {'form': form})
+    else:
+        form = AddCourse()
+        print("INNN HEEREEE ")
+    return render(request, 'course_feedback/course.html', context={'form': form})
+
 
 @login_required
 def restricted(request):
     return render(request, 'course_feedback/restricted.html')
+
+
+def account(request):
+    return render(request, 'course_feedback/account.html')
 
 
 # def visitor_cookie_handler(request):

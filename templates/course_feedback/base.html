@@ -14,8 +14,12 @@
     <div id="heading_box">
         <h2 id="heading_box_text">Campus Opinion</h2>
         <a href="{% url 'course_feedback:index' %}"><div id="home_box" class="button"><h3>Home</h3></div></a>
-        <a href="{% url 'course_feedback:register' %}"><div id="register_box" class="button"><h3>Register</h3></div></a>
-        <a href="{% url 'course_feedback:login' %}"><div id="login_box" class="button"><h3>Login</h3></div></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'course_feedback:account' %}"><div id="login_box" class="button"><h3>Account</h3></div></a>
+        {% else %}
+            <a href="{% url 'course_feedback:register' %}"><div id="register_box" class="button"><h3>Register</h3></div></a>
+            <a href="{% url 'course_feedback:login' %}"><div id="login_box" class="button"><h3>Login</h3></div></a>
+        {% endif %}
     </div>
 
     <br />

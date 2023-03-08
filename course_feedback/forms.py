@@ -35,8 +35,9 @@ class AddReview(forms.ModelForm):
 class AddCourse(forms.ModelForm):
     courseID = forms.CharField()
     name = forms.CharField()
-    photo = forms.ImageField()
+    picture = forms.ImageField()
+    reviewed = forms.BooleanField()
 
     class Meta:
         model = Course
-        fields = ('courseID', 'name', 'photo',)
+        fields = ('courseID', 'name', 'lecturer', 'picture', 'reviewed',)

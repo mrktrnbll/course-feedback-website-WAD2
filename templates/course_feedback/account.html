@@ -1,0 +1,10 @@
+{% extends 'course_feedback/base_account.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Account
+{% endblock %}
+
+{% block body_block %}
+        <a href="{% url 'course_feedback:logout' %}">Logout</a>
+{% endblock %}
