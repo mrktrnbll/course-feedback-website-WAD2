@@ -14,6 +14,9 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+    def get_is_lecturer(self):
+        return self.is_lecturer
+
 class Course(models.Model):
     NAME_MAX_LENGTH = 128
     ID_MAX_LENGTH = 8
