@@ -8,15 +8,15 @@
 {% block home_box_left_block %}
 
     {% if not user.is_authenticated %}
-        <p>Ask to register or login in order to see more content.</p>
-    {% elif user.is_active and profile.user.is_lecturer is True %}
-        <h2>User will see lecture related content.</h2>
-    {% elif user.is_active and profile.user.is_lecturer is False %}
-        <h2>User will see student specific content.</h2>
-    {% elif user.is_active and profile.user.is_lecturer is None %}
-        <h2>This is wierd.</h2>
+        <p>Register or login in order to see more content.</p>
     {% elif user.is_active %}
-        <h2>You are here because out is_lecturer implementation is broken.</h2>
+        {% if user.profile.get_is_lecturer is True %}
+            <h2>User will see lecture related content.</h2>
+        {% elif user.profile.get_is_lecturer is False %}
+            <h2>User will see student specific content.</h2>
+        {% else %}
+            <h2>User is waiting to be allocated a role.</h2>
+        {% endif %}
     {% else %}
         <p>You aren't logged in yet!</p>
         <p>Log-in to see personalized data</p>
