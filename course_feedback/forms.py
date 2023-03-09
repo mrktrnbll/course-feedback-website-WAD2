@@ -6,7 +6,7 @@ from course_feedback.models import Profile, Course, Review
 class RegisterForm(forms.ModelForm):
     # username = forms.CharField(help_text="Username")
     # email = forms.CharField(help_text="Email")
-    password = forms.CharField(widget=forms.PasswordInput(), help_text="Password")
+    password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
         model = User

@@ -144,7 +144,7 @@ h2.center {
 }
 
 #main_home_box_right li {
-	background-color: grey;
+	background-color: #d9d9d9;
     text-decoration: none;
     display: inline-block;
     height: 100px;
@@ -153,10 +153,28 @@ h2.center {
 }
 
 #main_home_box_right img{
-	text-align: left;
-	object-fit: contain;
-	width: 98px;
-	height: 98px;
+	float: left;
+	width: 150px;
+	height: 70px;
+	padding-left: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: none;
+}
+
+
+#click_to_review {
+	padding-left: 40px;
+}
+
+#course_link {
+	font-size: 20px;
+	position: relative;
+    left: 3%;
+    top: 40%;
+    position-anchor: 50% 50%;
+    text-decoration: none;
+    color: black;
 }
 
 nav ul {

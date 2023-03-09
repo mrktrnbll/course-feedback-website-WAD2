@@ -35,13 +35,13 @@
     {% else %}
         <h2 class="center">Courses</h2>
         {% if courses %}
-        <p>Click to review:</p>
+        <p id="click_to_review">Click to review:</p>
         <nav>
             <ul>
             {% for course in courses %}
                 <li>
                     <img src="{{ MEDIA_URL }}{{ course.picture }}" alt="Picture of a Course"/>
-                    <a>{{ course.courseID }}</a>
+                    <a id="course_link" href="{% url 'course_feedback:course' %}">{{ course.courseID }}</a>
                 </li>
             {% endfor %}
             </ul>
