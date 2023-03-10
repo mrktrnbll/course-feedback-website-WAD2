@@ -8,17 +8,20 @@ from course_feedback.models import Course, Review, Profile
 
 def populate():
 
-    cs1p_reviews = [{'content': 'I thought it was cracking', 'upvotes': 5},
-    {'content': 'Jolly good course', 'upvotes':14000}]
+    reviews = {
+    'CS1P':[{'content': 'I thought it was cracking', 'upvotes': 5},
+    {'content': 'Jolly good course', 'upvotes':14000}],
+    'IOOP':[{'content': 'OBJECTively brilliant', 'upvotes': 100000},]
+    }
 
-    courses = {'CS1P': {'reviews': cs1p_reviews, 'name': 'Computer Programming', 'reviewed': True, 'picture':'cs1p.png'},
-            'IOOP': {'reviews': [], 'name': 'Introduction to Objecto Oriented Programming', 'reviewed': False, 'picture': ""}}
+    courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'cs1p.png'},
+            'IOOP': {'name': 'Introduction to Objecto Oriented Programming', 'reviewed': True, 'picture': ""}}
 
     students = [{'username':'simon','password':'Bigman1!','email':'simon@live.co.uk'}]
 
     for course, course_data in courses.items():
         c = add_course(course, course_data['name'], course_data['reviewed'],  course_data['picture'])
-        for r in course_data['reviews']:
+        for r in reviews[course]:
             add_review(c, r['content'], r['upvotes'])
 
     for c in Course.objects.all():
