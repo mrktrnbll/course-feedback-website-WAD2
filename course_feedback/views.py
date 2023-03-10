@@ -42,7 +42,7 @@ def show_course(request, course_name_slug):
         if form.is_valid():
             review = form.save(commit=False)
             review.course = course
-            review.student = profile
+            review.student = request.user.profile
             review.save()
             return redirect('course_feedback:show_course', course.slug)
         else:
@@ -50,7 +50,7 @@ def show_course(request, course_name_slug):
 
     context_dict['form'] = form
 
-    return render(request, 'course_feedback/course.html', context=context_dict)
+    return render(request, 'course_feedback/course.html', context_dict)
 
 def user_login(request):
     if request.method == 'POST':
@@ -131,7 +131,10 @@ def restricted(request):
 
 
 def account(request):
-    return render(request, 'course_feedback/account.html')
+    student = request.user.profile  # get the profile of the logged in user
+    reviews = Review.objects.filter(student=student)  # get all reviews made by the student
+    context_dict = {'reviews': reviews}
+    return render(request, 'course_feedback/account.html', context_dict)
 
 
 # def visitor_cookie_handler(request):
