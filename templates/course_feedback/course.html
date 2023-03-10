@@ -9,22 +9,41 @@
     {% endif %}
 {% endblock %}
 
-{% block body_block %}
+{% block home_box_left_block %}
     {% if course %}
-    <h1>{{ course.name }}</h1>
-    {% if reviews %}
-    <ul>
-        {% for review in reviews %}
-        <li><a href="{{ review.url }}">{{ review.title }}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <strong>No reviews currently in course.</strong>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <a href="{% url 'rango:add_review' course.slug %}">Add Review</a><br />
-    {% endif %}
+        <h1>{{ course.name }}</h1>
+        {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+            <li>{{ review.content }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>No reviews currently in course.</strong>
+        {% endif %}
     {% else %}
     The specified course does not exist
+    {% endif %}
+{% endblock %}
+
+{% block home_box_right_block %}
+    {% if not user.is_authenticated %}
+        <p>You aren't logged in yet!</p>
+        <p>Register or log in to leave a review!</p>
+    {% elif user.is_active %}
+        {% if user.profile.get_is_lecturer is True %}
+            <h2>User will see lecture related content.</h2>
+        {% elif user.profile.get_is_lecturer is False %}
+        <form method="post" method="post" action="{% url 'course_feedback:show_course' course.slug %}">
+            {% csrf_token %}
+            Review: <input type="text" name="content" value="" size="50" />
+            <input type="submit" value="submit" value="Add Review"/>
+        </form>
+        {% else %}
+            <h2>User is waiting to be allocated a role.</h2>
+        {% endif %}
+    {% else %}
+        <p>You aren't logged in yet!</p>
+        <p>Log-in to see personalized data</p>
     {% endif %}
 {% endblock %}

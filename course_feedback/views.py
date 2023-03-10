@@ -36,6 +36,19 @@ def show_course(request, course_name_slug):
         context_dict['reviews'] = None
         context_dict['course'] = None
 
+
+    form = AddCourse()
+    if request.method == 'POST':
+        form = AddCourse(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('/course_feedback/')
+        else:
+            print(form.errors)
+
+    context_dict['form'] = form
+
     return render(request, 'course_feedback/course.html', context = context_dict)
 
 def user_login(request):
