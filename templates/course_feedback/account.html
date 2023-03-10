@@ -1,11 +1,20 @@
-{% extends 'course_feedback/base_account.html' %}
+{% extends 'course_feedback/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
     Account
 {% endblock %}
 
-{% block body_block %}
+{% block home_box_left_block %}
+    <h1> Hi {{ user.username }} !</h1>
+    <br />
+    <h2> Your email:</h2>
+        <ul> {{ user.email }} </ul>
+    <br />
+    <h2><a href="{% url 'course_feedback:logout' %}">Logout</a><h2>
+{% endblock %}
+
+{% block home_box_right_block %}
     {% if user.profile.get_is_lecturer is False %}
     <h2>Your Reviews:</h2>
         {% if reviews %}
@@ -18,5 +27,4 @@
             <p>You haven't written any reviews yet.</p>
         {% endif %}
     {% endif %}
-        <a href="{% url 'course_feedback:logout' %}">Logout</a>
 {% endblock %}
