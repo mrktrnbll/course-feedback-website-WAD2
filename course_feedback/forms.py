@@ -37,10 +37,10 @@ class AddReview(forms.ModelForm):
 
 
 class AddCourse(forms.ModelForm):
-    # courseID = forms.CharField()
-    # name = forms.CharField()
-    # picture = forms.ImageField()
+    courseID = forms.CharField()
+    name = forms.CharField()
+    picture = forms.ImageField()
 
     class Meta:
         model = Course
-        fields = ('courseID', 'name', 'lecturer', 'picture')
+        fields = ('courseID', 'name', 'picture')

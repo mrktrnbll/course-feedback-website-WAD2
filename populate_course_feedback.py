@@ -14,7 +14,7 @@ def populate():
     'IOOP':[{'content': 'OBJECTively brilliant', 'upvotes': 100000, 'student':'simon'},]
     }
 
-    courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'cs1p.png'},
+    courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'course_images/cs1p.png'},
             'IOOP': {'name': 'Introduction to Objecto Oriented Programming', 'reviewed': True, 'picture': ""}}
 
     students = [{'username':'simon','password':'Bigman1!','email':'simon@live.co.uk'}]

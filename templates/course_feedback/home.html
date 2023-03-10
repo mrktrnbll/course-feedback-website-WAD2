@@ -29,9 +29,16 @@
 {% block home_box_right_block %}
 
 
-    {% if user.is_authenticated and user.is_lecturer is True %}
+    {% if user.is_authenticated and user.profile.get_is_lecturer is True %}
         <h2>Create New Course</h2>
-        {#  add in form to add new course #}
+        <form method="post" action="{% url 'course_feedback:index' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            courseID: <input type="text" name="courseID" value="" size="5" />
+            name: <input type="text" name="name" value="" size="50" />
+            picture: <input type="file" name="picture" />
+            <input type="submit" value="Add Course"/>
+        </form>
+
     {% else %}
         <h2 class="center">Courses</h2>
         {% if courses %}

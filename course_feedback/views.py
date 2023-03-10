@@ -7,21 +7,28 @@ from course_feedback.forms import RegisterForm, RegisterProfileForm, AddCourse, 
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
-
-# def if_lecturer(user):
-#     return user.groups.filter(name='lecturer').exists()
-
-
-# @login_required
-# @if_lecturer
 def index(request):
     course_list = Course.objects.all()
     context_dict = {}
     context_dict['courses'] = course_list
-    #visitor_cookie_handler(request) - if we want to see the amount of people who will be visiting the site
 
+    form = AddCourse()
+    if request.method == 'POST':
+        form = AddCourse(request.POST, request.FILES)
+        if form.is_valid():
+            course = form.save(commit=False)
+            course.lecturer = request.user.profile
+            course.save()
+            form.save_m2m()
+            return redirect(reverse('course_feedback:index'))
+        else:
+            print(form.errors)
+    else:
+        course_form = AddCourse()
 
-    return render(request, 'course_feedback/home.html', context=context_dict)
+    context_dict['course_form'] = course_form
+    return render(request, 'course_feedback/home.html', context_dict)
+
 
 def show_course(request, course_name_slug):
     context_dict = {}
