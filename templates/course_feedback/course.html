@@ -31,16 +31,14 @@
         <p>You aren't logged in yet!</p>
         <p>Register or log in to leave a review!</p>
     {% elif user.is_active %}
-        {% if user.profile.get_is_lecturer is True %}
-            <h2>User will see lecture related content.</h2>
-        {% elif user.profile.get_is_lecturer is False %}
+        {% if user.profile.get_is_lecturer is False %}
         <form method="post" method="post" action="{% url 'course_feedback:show_course' course.slug %}">
             {% csrf_token %}
             Review: <input type="text" name="content" value="" size="50" />
             <input type="submit" value="Add Review"/>
         </form>
         {% else %}
-            <h2>User is waiting to be allocated a role.</h2>
+            <h3>Number of reviews: {{ course.num_reviews }}</h3>  <!--Lectuers and unallocated users see this -->
         {% endif %}
     {% else %}
         <p>You aren't logged in yet!</p>

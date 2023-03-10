@@ -37,6 +37,9 @@ class Course(models.Model):
     def __str__(self):
         return self.courseID
 
+    def num_reviews(self):
+        return self.review_set.count()
+
 class Review(models.Model):
     CONTENT_MAX_LENGTH = 500
 
