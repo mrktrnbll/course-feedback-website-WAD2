@@ -9,9 +9,9 @@ from course_feedback.models import Course, Review, Profile
 def populate():
 
     reviews = {
-    'CS1P':[{'content': 'I thought it was cracking', 'upvotes': 5},
-    {'content': 'Jolly good course', 'upvotes':14000}],
-    'IOOP':[{'content': 'OBJECTively brilliant', 'upvotes': 100000},]
+    'CS1P':[{'content': 'I thought it was cracking', 'upvotes': 5, 'student':'simon'},
+    {'content': 'Jolly good course', 'upvotes':14000, 'student':'simon'}],
+    'IOOP':[{'content': 'OBJECTively brilliant', 'upvotes': 100000, 'student':'simon'},]
     }
 
     courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'cs1p.png'},
@@ -19,20 +19,21 @@ def populate():
 
     students = [{'username':'simon','password':'Bigman1!','email':'simon@live.co.uk'}]
 
+    for s in students:
+        add_profile(username=s['username'],password=s['password'],email=s['email'],is_lecturer=False)
+
     for course, course_data in courses.items():
         c = add_course(course, course_data['name'], course_data['reviewed'],  course_data['picture'])
         for r in reviews[course]:
-            add_review(c, r['content'], r['upvotes'])
+            add_review(c, r['content'], r['upvotes'], r['student'])
 
     for c in Course.objects.all():
         for r in Review.objects.filter(course=c):
             print(f'- {c}: {r}')
 
-    for s in students:
-        add_profile(username=s['username'],password=s['password'],email=s['email'],is_lecturer=False)
-
-def add_review(course, content, upvotes):
-    r = Review.objects.get_or_create(course=course, content=content)[0]
+def add_review(course, content, upvotes, student):
+    s = Profile.objects.get(user__username=student)
+    r = Review.objects.get_or_create(course=course, content=content, student=s)[0]
     r.upvotes = upvotes
     r.save()
     return r

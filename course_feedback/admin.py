@@ -5,7 +5,7 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ('courseID','name','lecturer','reviewed','picture')
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('content', 'upvotes', 'course')
+    list_display = ('content', 'upvotes', 'course', 'student')
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Review, ReviewAdmin)

@@ -42,6 +42,7 @@ def show_course(request, course_name_slug):
         if form.is_valid():
             review = form.save(commit=False)
             review.course = course
+            review.student = profile
             review.save()
             return redirect('course_feedback:show_course', course.slug)
         else:

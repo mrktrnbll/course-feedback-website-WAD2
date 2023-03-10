@@ -46,8 +46,8 @@ class Review(models.Model):
     content = models.CharField(max_length=CONTENT_MAX_LENGTH, unique=True)  # unique means no spam
     upvotes = models.IntegerField(default = 0)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-#    student = models.ForeignKey(Profile, on_delete=models.CASCADE)
-#   temporarily removing the tie to the student because it is a bit complex to implement so need more time
+    student = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+
 
     def __str__(self):
         return self.content
