@@ -13,5 +13,4 @@ urlpatterns = [
     # path('AddCourse', views.AddCourse, name='AddCourse'), #This is where they are going to be adding a course (lecturer)
     path('logout/', views.user_logout, name='logout'),
     path('account/', views.account, name='account'),
-    # path('course/<slug:course_name_slug>/add_review/', views.add_review, name='add_review'),
 ]

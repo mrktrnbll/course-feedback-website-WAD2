@@ -23,20 +23,6 @@ def index(request):
 
     return render(request, 'course_feedback/home.html', context=context_dict)
 
-# def show_course(request, course_name_slug):
-#     context_dict = {}
-#
-#     try:
-#         course = Course.objects.get(slug=course_name_slug)
-#         reviews = Review.objects.filter(course=course)
-#         context_dict['reviews'] = reviews
-#         context_dict['course'] = course
-#     except Course.DoesNotExist:
-#         context_dict['reviews'] = None
-#         context_dict['course'] = None
-#
-#     return render(request, 'course_feedback/course.html', context = context_dict)
-
 def show_course(request, course_name_slug):
     context_dict = {}
 
