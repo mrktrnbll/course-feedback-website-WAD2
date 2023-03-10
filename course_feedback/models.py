@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
@@ -27,6 +28,11 @@ class Course(models.Model):
     # No CASCADE above as if a Lecturer account is deleted the course is allowed to live
     reviewed = models.BooleanField(default=False)
     picture = models.ImageField(upload_to='course_images', null=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.courseID)
+        super(Course, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.courseID

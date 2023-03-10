@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from course_feedback.decorators import if_lecturer, if_student, if_neither
-from course_feedback.models import Course 
+from course_feedback.models import Course, Review
 from course_feedback.forms import RegisterForm, RegisterProfileForm, AddCourse
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
@@ -24,9 +24,19 @@ def index(request):
 
     return render(request, 'course_feedback/home.html', context=context_dict)
 
-# def course(request):
+def show_course(request, course_name_slug):
+    context_dict = {}
 
-#     return render(request, 'course_feedback/course.html')
+    try:
+        course = Course.objects.get(slug=course_name_slug)
+        reviews = Review.objects.filter(course=course)
+        context_dict['reviews'] = reviews
+        context_dict['course'] = course
+    except Course.DoesNotExist:
+        context_dict['reviews'] = None
+        context_dict['course'] = None
+
+    return render(request, 'course_feedback/course.html', context = context_dict)
 
 def user_login(request):
     if request.method == 'POST':
@@ -74,7 +84,7 @@ def my_view(request):
 # @if_neither
 def my_view(request):
     return render(request, 'course_feedback/home.html')
-    
+
 
 def register(request):
     registered = False
@@ -101,7 +111,7 @@ def register(request):
     return render(request, 'course_feedback/register.html', context={'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
 
 @login_required
-def course(request):
+def add_course(request):
     if request.method == 'POST':
         course_form = AddCourse(request.POST, request.FILES)
         print(course_form.is_valid())
@@ -112,12 +122,12 @@ def course(request):
             if 'picture' in request.FILES:
                 course_form.picture = request.FILES['picture']
             course_form.save()
-            return redirect(reverse('course_feedback:index')) #should it be course_feedback:home
+            return redirect(reverse('course_feedback:index'))
         else:
             print(course_form.errors)
     else:
         course_form = AddCourse()
-    return render(request, 'course_feedback/course.html', context={'course_form': course_form})
+    return render(request, 'course_feedback/add_course.html', context={'course_form': course_form})
 
 
 @login_required
@@ -139,5 +149,5 @@ def account(request):
 #         request.session['last_visit'] = str(datetime.now())
 #     else:
 #         request.session['last_visit'] = last_visit_cookie
-    
-#     request.session['visits'] = visits 
+
+#     request.session['visits'] = visits
