@@ -37,7 +37,7 @@
         <form method="post" method="post" action="{% url 'course_feedback:show_course' course.slug %}">
             {% csrf_token %}
             Review: <input type="text" name="content" value="" size="50" />
-            <input type="submit" value="submit" value="Add Review"/>
+            <input type="submit" value="Add Review"/>
         </form>
         {% else %}
             <h2>User is waiting to be allocated a role.</h2>

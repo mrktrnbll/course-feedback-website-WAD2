@@ -3,10 +3,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from course_feedback.decorators import if_lecturer, if_student, if_neither
 from course_feedback.models import Course, Review
-from course_feedback.forms import RegisterForm, RegisterProfileForm, AddCourse
+from course_feedback.forms import RegisterForm, RegisterProfileForm, AddCourse, AddReview
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-# Create your views here.
 
 
 # def if_lecturer(user):
@@ -24,6 +23,20 @@ def index(request):
 
     return render(request, 'course_feedback/home.html', context=context_dict)
 
+# def show_course(request, course_name_slug):
+#     context_dict = {}
+#
+#     try:
+#         course = Course.objects.get(slug=course_name_slug)
+#         reviews = Review.objects.filter(course=course)
+#         context_dict['reviews'] = reviews
+#         context_dict['course'] = course
+#     except Course.DoesNotExist:
+#         context_dict['reviews'] = None
+#         context_dict['course'] = None
+#
+#     return render(request, 'course_feedback/course.html', context = context_dict)
+
 def show_course(request, course_name_slug):
     context_dict = {}
 
@@ -36,20 +49,21 @@ def show_course(request, course_name_slug):
         context_dict['reviews'] = None
         context_dict['course'] = None
 
-
-    form = AddCourse()
+    form = AddReview()
     if request.method == 'POST':
-        form = AddCourse(request.POST)
+        form = AddReview(request.POST)
 
         if form.is_valid():
-            form.save(commit=True)
-            return redirect('/course_feedback/')
+            review = form.save(commit=False)
+            review.course = course
+            review.save()
+            return redirect('course_feedback:show_course', course.slug)
         else:
             print(form.errors)
 
     context_dict['form'] = form
 
-    return render(request, 'course_feedback/course.html', context = context_dict)
+    return render(request, 'course_feedback/course.html', context=context_dict)
 
 def user_login(request):
     if request.method == 'POST':
@@ -76,27 +90,8 @@ def user_logout(request):
     return redirect(reverse('course_feedback:index'))
 
 
-
-# @login_required
-# @if_lecturer
-def my_view(request):
-    return HttpResponse('This is the lecturer view')
-
-
-
 # def if_student(user):
 #     return user.groups.filter(name='student').exists()
-
-
-# @if_student
-def my_view(request):
-
-    return HttpResponse('This is the student view')
-
-
-# @if_neither
-def my_view(request):
-    return render(request, 'course_feedback/home.html')
 
 
 def register(request):
