@@ -32,10 +32,11 @@
         <p>Register or log in to leave a review!</p>
     {% elif user.is_active %}
         {% if user.profile.get_is_lecturer is False %}
+        <h3 id="review">Review:</h3> 
         <form method="post" method="post" action="{% url 'course_feedback:show_course' course.slug %}">
             {% csrf_token %}
-            Review: <input type="text" name="content" value="" size="50" />
-            <input type="submit" value="Add Review"/>
+            <input id="reviewTextBox" type="text" name="content" value="" size="50" />
+            <input id="submitButton" type="submit" value="Add Review"/>
         </form>
         {% else %}
             <h3>Number of reviews: {{ course.num_reviews }}</h3>  <!--Lectuers and unallocated users see this -->
