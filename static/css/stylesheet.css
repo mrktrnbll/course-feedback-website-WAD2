@@ -139,6 +139,21 @@ h3 {
     transform: translate(-50%, -50%);
 }
 
+#main_body_box #main_home_box_right #inputBox{
+	width : 70%;
+	height : 80%;
+    position: absolute;
+	border-top: 50px;
+	border-left: 15px;
+}
+
+#inputBox #submitReview{
+	justify-content: center;
+	align-items: center;
+	float:right;
+
+}
+
 h2.center {
 	text-align: center;
 }
