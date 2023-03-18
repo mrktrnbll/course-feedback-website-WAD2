@@ -35,7 +35,7 @@
         <h3 id="review">Review:</h3> 
         <form method="post" method="post" action="{% url 'course_feedback:show_course' course.slug %}">
             {% csrf_token %}
-            <input id="reviewTextBox" type="text" name="content" value="" size="50" />
+            <textarea id="reviewTextBox" name="content" rows="4" cols="50"></textarea>
             <input id="submitButton" type="submit" value="Add Review"/>
         </form>
         {% else %}
