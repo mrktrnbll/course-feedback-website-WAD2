@@ -209,6 +209,105 @@ nav ul {
 	background-color: #d9d9d9;
 }
 
+#main_home_box_right #createNewCourse {
+	text-align: center;
+	position: relative;
+}
 
+#main_home_box_right #IDtext {
+	font-size: 20px;
+	text-align: left;
+	margin-left: 15px;
+	margin-top: 60px;
+}
+
+#main_home_box_right #nameText {
+	position: relative;
+	top: 20px;
+	font-size: 20px;
+	text-align: left;
+	margin-left: 15px;
+	margin-top: 60px;
+}
+
+#main_home_box_right #photoText {
+	position: relative;
+	top: 40px;
+	font-size: 20px;
+	text-align: left;
+	margin-left: 15px;
+	margin-top: 60px;
+}
+
+#main_home_box_right #courseID {
+	position: relative;
+	top: -60px;
+	float: right;
+	height: 55px;
+	width: 450px;
+	margin-right: 50px;
+	background-color: #d9d9d9;
+	font-size: 20px;
+}
+
+#main_home_box_right #name {
+	position: relative;
+	top: -40px;
+	float: right;
+	height: 55px;
+	width: 450px;
+	margin-right: 50px;
+	background-color: #d9d9d9;
+	font-size: 20px;
+}
+
+#main_home_box_right #picture {
+	position: relative;
+	top: -20px;
+	float: right;
+	height: 55px;
+	width: 450px;
+	margin-right: 50px;
+	background-color: #d9d9d9;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#main_home_box_right .custom-file-upload {
+    border: 1px solid black;
+    background-color: #d9d9d9;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    float: right;
+    top: -20px;
+    margin-right: 50px;
+    height: 55px;
+	width: 450px;
+}
+
+#main_home_box_right #span {
+	position: relative;
+	top:-15px;
+	left: 165px;
+	float: right;
+	height: 55px;
+	width: 450px;
+	margin-right: 50px;
+}
+
+#main_home_box_right #courseSubmit {
+	position: relative;
+	top: 90px;
+	left: 225px;
+	float: right;
+	margin-right: 50px;
+	background-color: #d9d9d9;
+	padding: 15px;
+
+}
 
 

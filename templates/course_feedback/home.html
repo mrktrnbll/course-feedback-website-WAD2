@@ -30,13 +30,21 @@
 
 
     {% if user.is_authenticated and user.profile.get_is_lecturer is True %}
-        <h2>Create New Course</h2>
+        <h2 id="createNewCourse">Create New Course</h2>
         <form method="post" action="{% url 'course_feedback:index' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            courseID: <input type="text" name="courseID" value="" size="5" />
-            name: <input type="text" name="name" value="" size="50" />
-            picture: <input type="file" name="picture" />
-            <input type="submit" value="Add Course"/>
+            <p id="IDtext">Course ID: </p><input id="courseID" type="text" name="courseID" value="" size="5" />
+            <p id="nameText">Course Name: </p><input id="name" type="text" name="name" value="" size="50" />
+            <p id="photoText">Course Photo: </p><input type="file" id="picture" name="picture" />
+            <label for="picture" class="custom-file-upload">
+                <i class="glyphicon glyphicon-open"></i>
+                &nbsp;Choose a photo
+            </label>
+            <span id="span">
+                <strong>Chosen file:</strong>
+                <span id="file-name">None</span>
+            </span>
+            <input id="courseSubmit" type="submit" value="Add Course"/>
         </form>
 
     {% else %}

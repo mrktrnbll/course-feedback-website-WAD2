@@ -1,7 +1,7 @@
-const upvote = document.querySelector(".upvote");
-const upvoteIcon = document.querySelector("#icon");
-const count = document.querySelector("#count");
 
-upvote.addEventListener("click", () => {
-	console.log("hello");
-})
+let inputFile = document.getElementById('picture');
+let fileNameField = document.getElementById('file-name');
+inputFile.addEventListener('change', function(event)){
+	let uploadedFileName = event.target.files.[0].name;
+	fileNameField.textContent = uploadedFileName;
+}
