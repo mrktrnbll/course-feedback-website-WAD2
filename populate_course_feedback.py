@@ -11,12 +11,15 @@ def populate():
     reviews = {
     'CS1P':[{'content': 'I thought it was cracking', 'upvotes': 5, 'student':'simon'},
     {'content': 'Jolly good course', 'upvotes':14000, 'student':'simon'}],
-    'IOOP':[{'content': 'OBJECTively brilliant', 'upvotes': 100000, 'student':'simon'},]
+    'WAD2':[{'content': 'The slides are dull', 'upvotes':2,'student':'simon'}],
+    'IOOP':[{'content': 'OBJECTively brilliant', 'upvotes': 100000, 'student':'simon'},
+    {'content': 'I thought it was quite good', 'upvotes':10, 'student':'simon'}]
     }
 
     courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'course_images/cs1p.png'},
-            'WAD2': {'name':'Web App Development', 'reviewed': False, 'picture':'course_images/wad2.png'},
-            'IOOP': {'name': 'Introduction to Object Oriented Programming', 'reviewed': True, 'picture':'course_images/IOOP.png'}}
+            'WAD2': {'name':'Web App Development', 'reviewed': True, 'picture':'course_images/wad2.png'},
+            'IOOP': {'name': 'Introduction to Object Oriented Programming', 'reviewed': True, 'picture':'course_images/IOOP.png'},
+            'OOSE': {'name': 'Object Oriented Software Engineering', 'reviewed':False, 'picture':'course_images/OOSE.png'}}
 
     students = [{'username':'simon','password':'Bigman1!','email':'simon@live.co.uk'}]
 
