@@ -15,6 +15,7 @@ def populate():
     }
 
     courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'course_images/cs1p.png'},
+            'WAD2': {'name':'Web App Development', 'reviewed': False, 'picture':'course_images/wad2.png'},
             'IOOP': {'name': 'Introduction to Object Oriented Programming', 'reviewed': True, 'picture':'course_images/IOOP.png'}}
 
     students = [{'username':'simon','password':'Bigman1!','email':'simon@live.co.uk'}]
@@ -24,8 +25,9 @@ def populate():
 
     for course, course_data in courses.items():
         c = add_course(course, course_data['name'], course_data['reviewed'],  course_data['picture'])
-        for r in reviews[course]:
-            add_review(c, r['content'], r['upvotes'], r['student'])
+        if c in reviews:
+            for r in reviews[course]:
+                add_review(c, r['content'], r['upvotes'], r['student'])
 
     for c in Course.objects.all():
         for r in Review.objects.filter(course=c):
