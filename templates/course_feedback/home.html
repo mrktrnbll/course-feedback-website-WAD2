@@ -16,7 +16,7 @@
         <nav>
             <ul>
             {% for course in courses %}
-                <li>
+                <li id="courses">
                     <img src="{{ MEDIA_URL }}{{ course.picture }}" alt="Picture of a Course"/>
                     <a id="course_link" href="{% url 'course_feedback:show_course' course.slug %}">{{ course.courseID }}</a>
                 </li>

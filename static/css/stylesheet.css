@@ -162,7 +162,7 @@ h2.center {
 	padding-right: none;
 }
 
-#main_home_box_left li {
+#main_home_box_left #courses {
 	background-color: #d9d9d9;
     text-decoration: none;
     display: inline-block;
