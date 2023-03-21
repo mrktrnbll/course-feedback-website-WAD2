@@ -162,6 +162,24 @@ h2.center {
 	padding-right: none;
 }
 
+#main_home_box_left li {
+	background-color: #d9d9d9;
+    text-decoration: none;
+    display: inline-block;
+    height: 100px;
+    width: 400px;
+    margin-bottom: 50px;
+}
+
+#main_home_box_left img{
+	float: left;
+	width: 150px;
+	height: 70px;
+	padding-left: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: none;
+}
 
 #click_to_review {
 	padding-left: 40px;

@@ -11,7 +11,22 @@
         <p>Register or login in order to see more content.</p>
     {% elif user.is_active %}
         {% if user.profile.get_is_lecturer is True %}
-            <h2>User will see lecture related content.</h2>
+            <h2 class="center">Created Courses</h2>
+        {% if courses %}
+        <nav>
+            <ul>
+            {% for course in courses %}
+                <li>
+                    <img src="{{ MEDIA_URL }}{{ course.picture }}" alt="Picture of a Course"/>
+                    <a id="course_link" href="{% url 'course_feedback:show_course' course.slug %}">{{ course.courseID }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
+        {% else %}
+            <br />
+            <p>There are no courses present.</p>
+        {% endif %}
         {% elif user.profile.get_is_lecturer is False %}
             <h2>User will see student specific content.</h2>
         {% else %}
