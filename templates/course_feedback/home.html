@@ -27,11 +27,29 @@
             <br />
             <p>There are no courses present.</p>
         {% endif %}
+
         {% elif user.profile.get_is_lecturer is False %}
-            <h2>User will see student specific content.</h2>
+            <h2 class="center">Courses not reviewed</h2>
+        {% if course_to_review %}
+        <p id="click_to_review">Click to review:</p>
+        <nav>
+            <ul>
+            {% for course in course_to_review%}
+                <li id="courses">
+                    <img src="{{ MEDIA_URL }}{{ course.picture }}" alt="Picture of a Course"/>
+                    <a id="course_link" href="{% url 'course_feedback:show_course' course.slug %}">{{ course.courseID }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
+        {% else %}
+            <br />
+            <p>There are no unreviewed courses</p>
+        {% endif %}
         {% else %}
             <h2>User is waiting to be allocated a role.</h2>
         {% endif %}
+
     {% else %}
         <p>You aren't logged in yet!</p>
         <p>Log-in to see personalized data</p>

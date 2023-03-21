@@ -25,6 +25,8 @@ def index(request):
             print(form.errors)
     else:
         course_form = AddCourse()
+    course_to_review = Course.objects.filter(reviewed=False)
+    context_dict['course_to_review'] = course_to_review
 
     context_dict['course_form'] = course_form
     return render(request, 'course_feedback/home.html', context_dict)
