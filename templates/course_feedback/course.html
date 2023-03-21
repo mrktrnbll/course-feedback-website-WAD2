@@ -11,11 +11,12 @@
 
 {% block home_box_left_block %}
     {% if course %}
-        <h1>{{ course.name }}</h1>
+        <h1 id="courseTitle">{{ course.name }}</h1>
+        <h3>Reviews:</h3>
         {% if reviews %}
         <ul>
             {% for review in reviews %}
-            <li>{{ review.content }}</li>
+            <li id="reviews">{{ review.content }}</li>
             {% endfor %}
         </ul>
         {% else %}
@@ -39,10 +40,11 @@
             <input id="submitButton" type="submit" value="Add Review"/>
         </form>
         {% else %}
-            <h3>Number of reviews: {{ course.num_reviews }}</h3>  <!--Lectuers and unallocated users see this -->
+            <p id="noReviews">Number of reviews: {{ course.num_reviews }}</p>  <!--Lectuers and unallocated users see this -->
+            <p id="mostUpVoted">Most Upvoted review: {{ reviews.upvotes.MAX }}
         {% endif %}
     {% else %}
-        <p>You aren't logged in yet!</p>
-        <p>Log-in to see personalized data</p>
+        <h3>You aren't logged in yet!</h3>
+        <h3>Log-in to see personalized data</h3>
     {% endif %}
 {% endblock %}
