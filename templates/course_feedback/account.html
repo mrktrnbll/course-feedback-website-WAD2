@@ -18,11 +18,13 @@
     {% if user.profile.get_is_lecturer is False %}
     <h2>Your Reviews:</h2>
         {% if reviews %}
-        <ul>
-            {% for review in reviews %}
-                <li>{{ review.content }} - {{ review.course }}</li>
-            {% endfor %}
-        </ul>
+        <nav>
+            <ul>
+                {% for review in reviews %}
+                    <li>{{ review.content }} - {{ review.course }}</li>
+                {% endfor %}
+            </ul>
+        </nav>
         {% else %}
             <p>You haven't written any reviews yet.</p>
         {% endif %}
