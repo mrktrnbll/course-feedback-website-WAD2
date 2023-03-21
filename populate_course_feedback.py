@@ -25,7 +25,7 @@ def populate():
 
     for course, course_data in courses.items():
         c = add_course(course, course_data['name'], course_data['reviewed'],  course_data['picture'])
-        if c in reviews:
+        if course in reviews:
             for r in reviews[course]:
                 add_review(c, r['content'], r['upvotes'], r['student'])
 
