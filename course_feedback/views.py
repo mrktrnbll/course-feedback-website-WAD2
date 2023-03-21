@@ -28,7 +28,7 @@ def index(request):
     course_to_review = Course.objects.filter(reviewed=False)
     context_dict['course_to_review'] = course_to_review
 
-    context_dict['course_form'] = course_form
+    context_dict['course_form'] = form
     return render(request, 'course_feedback/home.html', context_dict)
 
 
@@ -53,6 +53,8 @@ def show_course(request, course_name_slug):
             review.course = course
             review.student = request.user.profile
             review.save()
+            course.reviewed = True
+            course.save()
             return redirect('course_feedback:show_course', course.slug)
         else:
             print(form.errors)
