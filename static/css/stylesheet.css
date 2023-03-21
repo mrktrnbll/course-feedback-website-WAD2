@@ -196,10 +196,10 @@ h2.center {
 }
 
 nav ul {
-	height:500px; 
-	width:675px;
-	overflow:hidden;
-	overflow-y:scroll;
+	height:350px;
+	width:700px;
+	overflow:scroll;
+	overflow-x: hidden;
 }
 
 #main_home_box_right #reviewTextBox {
