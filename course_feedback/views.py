@@ -20,14 +20,12 @@ def index(request):
             course.lecturer = request.user.profile
             course.save()
             form.save_m2m()
-            return redirect(reverse('course_feedback:index'))
+            return redirect('course_feedback:index')
         else:
             print(form.errors)
-    else:
-        course_form = AddCourse()
+    
     course_to_review = Course.objects.filter(reviewed=False)
     context_dict['course_to_review'] = course_to_review
-
     context_dict['course_form'] = form
     return render(request, 'course_feedback/home.html', context_dict)
 
