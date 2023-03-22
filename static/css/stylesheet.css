@@ -213,22 +213,23 @@ nav ul {
 
 #main_home_box_right #reviewTextBox {
     left: 5px;
-    position: relative;
-    height: 425px;
-    width: 625px;
+    position: absolute;
+    height: 350px;
+    width: 680px;
     margin: 50px;
     background-color: #d9d9d9;
     text-align: left;
+    resize: none;
 }
 
 #main_home_box_right #review{
-    margin-left:330px;
+    margin-left:350px;
     margin-right:auto;
 }
 
 #main_home_box_right #submitButton{
-    position: relative;
-    bottom: 70px;
+    position: absolute;
+    bottom: 50px;
     left: 600px;
     margin-top: 25px;
     height: 30px;
@@ -355,8 +356,18 @@ input[type="file"] {
     text-align: center;
 }
 #main_home_box_left #reviews{
+    white-space: normal;
+    word-wrap: break-word;
     position: relative;
-    top: 70px;
+    top: 0px;
+    max-width: 400px;
+}
+
+.scroll_for_reviews {
+    height:300px;
+    width:440px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #main_body_box_account #username_login_form {
@@ -410,6 +421,13 @@ input[type="file"] {
     background: #60a4dc;
     width: 9vw;
     left: 118px;
+    height: 60px;
+    position: absolute;
+}
+
+#main_body_box_account #login_feedback {
+    top: 370px;
+    left: 270px;
     height: 60px;
     position: absolute;
 }
