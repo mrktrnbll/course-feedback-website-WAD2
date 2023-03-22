@@ -370,6 +370,13 @@ input[type="file"] {
     overflow-x: hidden;
 }
 
+.scroll_for_reviews_account {
+    height:400px;
+    width:700px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
 #main_body_box_account #username_login_form {
     position: relative;
     margin-top: 100px;

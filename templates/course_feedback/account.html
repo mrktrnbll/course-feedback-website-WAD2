@@ -11,7 +11,7 @@
     <h2> Your email:</h2>
         <ul> {{ user.email }} </ul>
     <br />
-    <h2><a href="{% url 'course_feedback:logout' %}">Logout</a><h2>
+    <h2><a href="{% url 'course_feedback:logout' %}">Logout</a></h2>
 {% endblock %}
 
 {% block home_box_right_block %}
@@ -19,9 +19,9 @@
     <h2>Your Reviews:</h2>
         {% if reviews %}
         <nav>
-            <ul>
+            <ul class="scroll_for_reviews_account">
                 {% for review in reviews %}
-                    <li>{{ review.content }} - {{ review.course }}</li>
+                    <li id="reviews">{{ review.content }} <br/>- <strong>{{ review.course }}</strong> <br />- <strong>{{ review.upvotes }}</strong> people agree</li>
                 {% endfor %}
             </ul>
         </nav>

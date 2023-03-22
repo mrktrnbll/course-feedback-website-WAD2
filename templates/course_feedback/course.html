@@ -16,7 +16,16 @@
         {% if reviews %}
         <ul class="scroll_for_reviews">
             {% for review in reviews %}
-            <li id="reviews">{{ review.content }}</li>
+                <div>
+                    <li id="reviews">{{ review.content }}</li>
+                    <p><strong>{{ review.upvotes }}</strong> upvotes</p>
+                    <button id="like_btn"
+                        data-categoryid="{{ review.upvotes }}"
+                        class="btn btn-primary btn-sm"
+                        type="button">
+                        upvote
+                    </button>
+                </div>
             {% endfor %}
         </ul>
         {% else %}
