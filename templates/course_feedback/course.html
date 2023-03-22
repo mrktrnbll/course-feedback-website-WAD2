@@ -18,10 +18,9 @@
             {% for review in reviews %}
                 <div>
                     <li id="reviews">{{ review.content }}</li>
-                    <p><strong>{{ review.upvotes }}</strong> upvotes</p>
+                    <a><strong>{{ review.upvotes }}</strong> upvotes</a>
                     <button id="like_btn"
-                        data-categoryid="{{ review.upvotes }}"
-                        class="btn btn-primary btn-sm"
+                        review-id="{{ review.content }}"
                         type="button">
                         upvote
                     </button>

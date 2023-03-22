@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.views import View
+
 from course_feedback.decorators import if_lecturer, if_student, if_neither
 from course_feedback.models import Course, Review
 from course_feedback.forms import RegisterForm, RegisterProfileForm, AddCourse, AddReview
@@ -144,6 +147,27 @@ def account(request):
     reviews = Review.objects.filter(student=student)  # get all reviews made by the student
     context_dict = {'reviews': reviews}
     return render(request, 'course_feedback/account.html', context_dict)
+
+
+class LikeCourseView(View):
+    print("i do get called")
+
+    @method_decorator(login_required)
+    def get(self, request):
+        print("here")
+        review_id = request.GET['content']
+        print("i even get here " + review_id)
+        try:
+            review = Review.objects.get(content=review_id)
+        except Review.DoesNotExist:
+            return HttpResponse(-1)
+        except ValueError:
+            return HttpResponse(-1)
+
+        review.upvotes = review.upvotes + 1
+        review.save()
+
+        return HttpResponse(review.upvotes)
 
 
 # def visitor_cookie_handler(request):
