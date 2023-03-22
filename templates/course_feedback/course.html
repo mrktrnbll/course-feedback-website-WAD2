@@ -12,9 +12,9 @@
 {% block home_box_left_block %}
     {% if course %}
         <h1 id="courseTitle">{{ course.name }}</h1>
-        <h3>Reviews:</h3>
+        <h3 style="position: relative;">Reviews:</h3>
         {% if reviews %}
-        <ul>
+        <ul class="scroll_for_reviews">
             {% for review in reviews %}
             <li id="reviews">{{ review.content }}</li>
             {% endfor %}

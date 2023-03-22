@@ -76,7 +76,7 @@ def user_login(request):
                 return HttpResponse("Your Campus Opinion account is disabled.")
         else:
             print(f"Invalid login details: {username}, {password}")
-            return HttpResponse("Invalid login details supplied.")
+            return render(request, 'course_feedback/login.html', context={'registered': "We don't have any account details that match what you entered" })
     else:
         return render(request, 'course_feedback/login.html')
 

@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block body_block %}
-    <a href="{% url 'course_feedback:register' %}"><div id="login_register_box" class="button"><h3>Register</h3></div></a>
     <br>
     <div id="main_body_box_account">
         <form method="post" action="">
@@ -22,6 +21,9 @@
             <div id="username_login_form">
                 <input id="submit_account_form" type="submit" value="submit" />
             </div>
+            <div id="login_feedback">{{ registered }}</div>
         </form>
+
     </div>
+
 {% endblock %}
