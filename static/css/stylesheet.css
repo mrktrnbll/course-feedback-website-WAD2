@@ -126,6 +126,15 @@ h3 {
     position: relative;
 }
 
+#main_body_box_account {
+    border-radius: 0px;
+    background: #2686d0;
+    width: 60vw;
+    height: 80vh;
+    margin: auto;
+    position: relative;
+}
+
 #main_body_box #main_home_box_left {
     border-radius: 25px;
     width: 35%;
@@ -205,10 +214,10 @@ h2.center {
 }
 
 nav ul {
-    height:350px; 
-    width:700px;
-    overflow:hidden;
-    overflow-y:scroll;
+    height:350px;
+    width:730px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #main_home_box_right #reviewTextBox {
@@ -328,7 +337,7 @@ input[type="file"] {
 
 #main_home_box_right #courseSubmit {
     position: relative;
-    top: 90px;
+    top: 30px;
     left: 225px;
     float: right;
     margin-right: 50px;
@@ -357,4 +366,59 @@ input[type="file"] {
 #main_home_box_left #reviews{
     position: relative;
     top: 70px;
+}
+
+#main_body_box_account #username_login_form {
+    position: relative;
+    margin-top: 100px;
+    height: 50px;
+    right: 30px;
+    align-self: center;
+    max-width: 300px;
+    margin: auto;
+    top: 140px;
+    text-align: left;
+}
+
+#main_body_box_account #register_form {
+    vertical-align: auto;
+    position: relative;
+    height: 100px;
+    right: 30px;
+    align-self: center;
+    max-width: 300px;
+    margin: auto;
+    top: 100px;
+    text-align: left;
+}
+
+#main_body_box_account #login_boxes {
+    border-radius: 10px;
+    height: 30px;
+    /*width: 200px;*/
+}
+
+#main_body_box_account .register_boxes {
+    border-radius: 10px;
+    height: 30px;
+    width: 360px;
+    /*width: 200px;*/
+}
+
+#main_body_box_account #submit_account_form {
+    border-radius: 25px;
+    background: #60a4dc;
+    width: 6vw;
+    left: 140px;
+    height: 60px;
+    position: absolute;
+}
+
+#main_body_box_account #submit_register_form {
+    border-radius: 25px;
+    background: #60a4dc;
+    width: 9vw;
+    left: 118px;
+    height: 60px;
+    position: absolute;
 }

@@ -7,14 +7,21 @@
 
 {% block body_block %}
     <a href="{% url 'course_feedback:register' %}"><div id="login_register_box" class="button"><h3>Register</h3></div></a>
-    <h2 class="align-center">Try pressing some buttons in the header!</h2>
-    <form method="post" action="">
-        {% csrf_token %}
-            Username: <input type="text" name="username" value="" size="50" />
-        <br />
-            Password: <input type="password" name="password" value="" size="50" />
-        <br />
-        <input type="submit" value="submit" />
-    </form>
-
+    <br>
+    <div id="main_body_box_account">
+        <form method="post" action="">
+            {% csrf_token %}
+            <div id="username_login_form">
+                Username: <input id="login_boxes" type="text" name="username" value="" size="50" />
+            </div>
+            <br />
+            <div id="username_login_form">
+                Password: <input id="login_boxes" type="password" name="password" value="" size="50" />
+            </div>
+            <br />
+            <div id="username_login_form">
+                <input id="submit_account_form" type="submit" value="submit" />
+            </div>
+        </form>
+    </div>
 {% endblock %}

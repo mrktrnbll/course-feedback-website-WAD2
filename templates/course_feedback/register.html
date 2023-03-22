@@ -7,11 +7,14 @@
 
 {% block body_block %}
     <a href="{% url 'course_feedback:login' %}"><div id="login_register_box" class="button"><h3>Login</h3></div></a>
-    <h2 class="center">Try pressing some buttons in the header!</h2>
-    <form id="user_form" method="post" action="">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <input type="submit" name="submit" value="Register Account" />
-    </form>
+    <div id="main_body_box_account">
+        <form id="user_form" method="post" action="">
+            {% csrf_token %}
+            <div id="register_form">
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                <input id="submit_register_form" type="submit" name="submit" value="Register Account" />
+            </div>
+        </form>
+    </div>
 {% endblock %}
