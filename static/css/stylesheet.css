@@ -212,7 +212,7 @@ nav ul {
 }
 
 #main_home_box_right #reviewTextBox {
-    left: 5px;
+    right: -20px;
     position: absolute;
     height: 350px;
     width: 680px;
