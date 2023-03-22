@@ -6,17 +6,35 @@ from course_feedback.models import Profile, Course, Review
 class RegisterForm(forms.ModelForm):
     # username = forms.CharField(help_text="Username")
     # email = forms.CharField(help_text="Email")
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'register_boxes',}))
 
     class Meta:
         model = User
         fields = ('username', 'email', 'password',)
+        help_texts = {
+            'username': None,
+            'password': None,
+        }
+
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'register_boxes'}),
+            'email': forms.TextInput(attrs={'class': 'register_boxes'}),
+        }
 
 
 class RegisterProfileForm(forms.ModelForm):
+
     class Meta:
         model = Profile
         fields = ('is_lecturer',)
+        help_texts = {
+            'username': None,
+            'password': None,
+        }
+
+        widgets = {
+            # 'is_lecurer': forms.Select(attrs={'id': 'register_boxes'}),
+        }
 
 
 class LoginForm(forms.ModelForm):
