@@ -21,7 +21,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-# STATICFILES_DIRS = [STATIC_DIR, ]
+STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_ROOT = "/home/gracecavendish/course-feedback-website-WAD2/static"
 STATIC_URL = '/static/'
 
