@@ -93,6 +93,15 @@ body {
     text-align: center;
 }
 
+#main_body_box_account {
+	border-radius: 0px;
+	background: #2686d0;
+	width: 64vw;
+	height: 80vh;
+	margin: auto;
+	position: relative;
+}
+
 h3 {
     font-weight: bold;
     text-align: center;
