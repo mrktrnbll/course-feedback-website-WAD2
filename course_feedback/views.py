@@ -152,22 +152,22 @@ def account(request):
 class LikeCourseView(View):
     print("i do get called")
 
-    @method_decorator(login_required)
     def get(self, request):
         print("here")
-        review_id = request.GET['content']
-        print("i even get here " + review_id)
+        review_id = request.GET['review_id']
         try:
             review = Review.objects.get(content=review_id)
         except Review.DoesNotExist:
+            print("does not exist review")
             return HttpResponse(-1)
         except ValueError:
+            print("value error")
             return HttpResponse(-1)
 
         review.upvotes = review.upvotes + 1
         review.save()
 
-        return HttpResponse(review.upvotes)
+        # return HttpResponse(review.upvotes)
 
 
 # def visitor_cookie_handler(request):

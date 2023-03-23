@@ -7,7 +7,7 @@ $(document).ready(function() {
 		$.get('/like_review/',
 			{'review_id': catecategoryIdVar},
 			function(data) {
-				$('#like_count').html(data);
+				$('#reviews').html(data);
 				$('#like_btn').hide();
 			})
 	});
