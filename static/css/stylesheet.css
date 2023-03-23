@@ -223,6 +223,7 @@ h2.center {
 }
 
 #main_home_box_left #logout{
+    color: #1a1d20;
     font-size: 20px;
     text-align: center;
     position: relative;

@@ -148,18 +148,16 @@ class LikeCourseView(View):
 
     @method_decorator(login_required)
     def get(self, request):
-        print("here")
         review_id = request.GET['review_id']
         try:
             review = Review.objects.get(content=review_id)
         except Review.DoesNotExist:
-            print("does not exist review")
-            return HttpResponse(-1)
+            return HttpResponse("")
         except ValueError:
-            print("value error")
-            return HttpResponse(-1)
+            return HttpResponse("")
 
         review.upvotes = review.upvotes + 1
         review.save()
 
+        return HttpResponse("")
         # return HttpResponse(review.upvotes)
