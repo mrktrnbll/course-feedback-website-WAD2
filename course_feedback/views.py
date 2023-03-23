@@ -26,7 +26,7 @@ def index(request):
             return redirect('course_feedback:index')
         else:
             print(form.errors)
-    
+
     course_to_review = Course.objects.filter(reviewed=False)
     context_dict['course_to_review'] = course_to_review
     context_dict['course_form'] = form
@@ -108,8 +108,8 @@ def register(request):
             registered = True
             if profile.is_lecturer is True:
                 print("lecture is chosen, mention that an admin will need to authenticate at a later date.")
-                ## we will want to add some sort of returning message here to show the user that they
-                ## a lecturer yet
+                # We can use the reverse function to get the URL of the 'index' view
+                return redirect(reverse('course_feedback:login'))
         else:
             print(user_form.errors, profile_form.errors)
     else:
