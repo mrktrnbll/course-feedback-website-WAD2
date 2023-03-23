@@ -203,6 +203,10 @@ h2.center {
     margin-bottom: 50px;
 }
 
+#main_home_box_left #noReviews {
+    margin-left: 100px;
+}
+
 #main_home_box_left #acountTitle{
     margin-top: 20px;
 }
@@ -293,6 +297,12 @@ nav ul {
 
 #main_home_box_right #homeCourseHeading{
     margin-top: 5px;
+}
+
+#main_home_box_right #accountRight{
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 30px;
 }
 
 #main_home_box_right #review{
@@ -508,7 +518,7 @@ input[type="file"] {
 #main_body_box_account #submit_register_form {
     border-radius: 25px;
     background: #60a4dc;
-    width: 9vw;
+    width: 10vw;
     left: 118px;
     height: 60px;
     position: absolute;
