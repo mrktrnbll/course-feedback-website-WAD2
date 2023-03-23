@@ -108,7 +108,6 @@ def register(request):
             registered = True
             if profile.is_lecturer is True:
                 print("lecture is chosen, mention that an admin will need to authenticate at a later date.")
-                # We can use the reverse function to get the URL of the 'index' view
                 return redirect(reverse('course_feedback:login'))
         else:
             print(user_form.errors, profile_form.errors)
