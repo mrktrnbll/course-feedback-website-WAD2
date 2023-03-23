@@ -21,6 +21,10 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
+STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_ROOT = "/home/gracecavendish/course-feedback-website-WAD2/static"
+STATIC_URL = '/static/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -122,9 +126,7 @@ USE_TZ = True
 
 
 
-STATICFILES_DIRS = [STATIC_DIR, ]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
