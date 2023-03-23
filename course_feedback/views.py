@@ -26,7 +26,7 @@ def index(request):
             return redirect('course_feedback:index')
         else:
             print(form.errors)
-    
+
     course_to_review = Course.objects.filter(reviewed=False)
     context_dict['course_to_review'] = course_to_review
     context_dict['course_form'] = form
@@ -83,15 +83,9 @@ def user_login(request):
     else:
         return render(request, 'course_feedback/login.html')
 
-# @login_required
 def user_logout(request):
     logout(request)
     return redirect(reverse('course_feedback:index'))
-
-
-# def if_student(user):
-#     return user.groups.filter(name='student').exists()
-
 
 def register(request):
     registered = False
@@ -107,9 +101,7 @@ def register(request):
             profile.save()
             registered = True
             if profile.is_lecturer is True:
-                print("lecture is chosen, mention that an admin will need to authenticate at a later date.")
-                ## we will want to add some sort of returning message here to show the user that they
-                ## a lecturer yet
+                return redirect(reverse('course_feedback:login'))
         else:
             print(user_form.errors, profile_form.errors)
     else:
@@ -143,15 +135,18 @@ def restricted(request):
 
 
 def account(request):
-    student = request.user.profile  # get the profile of the logged in user
-    reviews = Review.objects.filter(student=student)  # get all reviews made by the student
+    student_or_lecturer = request.user.profile  # get the profile of the logged in user
+    reviews = Review.objects.filter(student=student_or_lecturer)  # get all reviews made by the student
     context_dict = {'reviews': reviews}
+    createdCourses = Course.objects.filter(lecturer=student_or_lecturer)
+    context_dict['createdCourses'] = createdCourses
     return render(request, 'course_feedback/account.html', context_dict)
 
 
 class LikeCourseView(View):
     print("i do get called")
 
+    @method_decorator(login_required)
     def get(self, request):
         print("here")
         review_id = request.GET['review_id']
@@ -168,17 +163,3 @@ class LikeCourseView(View):
         review.save()
 
         # return HttpResponse(review.upvotes)
-
-
-# def visitor_cookie_handler(request):
-#     visits = int(get_server_side_cookie(request, 'visits', '1'))
-#     last_visit_cookie = get_server_side_cookie(request, 'last_visit', str(datetime.now()))
-#     last_visit_time = datetime.strptime(last_visit_cookie[:-7], '%Y-%m-%d %H:%M:%S')
-
-#     if (datetime.now() - last_visit_time).days > 0:
-#         visits = visits + 1
-#         request.session['last_visit'] = str(datetime.now())
-#     else:
-#         request.session['last_visit'] = last_visit_cookie
-
-#     request.session['visits'] = visits

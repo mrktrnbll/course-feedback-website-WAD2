@@ -5,42 +5,58 @@ body {
 #login_box {
     border-radius: 25px;
     background: #60a4dc;
-    width: 6vw;
-    left: 91vw;
+    width: 8vw;
+    left: 90vw;
     height: 60px;
     position: absolute;
-    top: 12px;
+    top: 15px;
     margin: auto;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 7px;
+
 }
 
 #register_box {
     border-radius: 25px;
     background: #60a4dc;
-    width: 6vw;
-    left: 84vw;
+    width: 8vw;
+    left: 81vw;
     height: 60px;
     position: absolute;
-    top: 12px;
+    top: 15px;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 7px;
 }
 
 #login_register_box {
     border-radius: 25px;
     background: #60a4dc;
-    width: 6vw;
-    left: 63vw;
+    width: 8vw;
+    left: 63;
     height: 60px;
     position: absolute;
-    top: 12px;
+    top: 15px;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 7px;
 }
 
 #home_box {
     border-radius: 25px;
     background: #60a4dc;
-    width: 6vw;
+    width: 8vw;
     left: 2vw;
     height: 60px;
     position: absolute;
-    top: 12px;
+    top: 15px;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 7px;
 }
 
 #home_box2 {
@@ -69,6 +85,7 @@ body {
     width: 98vw;
     height: 70px;
     margin: auto;
+    margin-top: 10px;
 }
 
 #heading_box2 {
@@ -84,6 +101,7 @@ body {
     width: 98vw;
     position: absolute;
     text-align: center;
+    margin-top: 15px;
 }
 
 #heading_box2_text {
@@ -95,11 +113,14 @@ body {
 
 #main_body_box_account {
 	border-radius: 0px;
-	background: #2686d0;
-	width: 64vw;
-	height: 80vh;
-	margin: auto;
-	position: relative;
+    background: #2686d0;
+    width: 94vw;
+    height: 80vh;
+    margin: auto;
+    position: relative;
+    top: 39px;
+
+
 }
 
 h3 {
@@ -124,16 +145,9 @@ h3 {
     height: 80vh;
     margin: auto;
     position: relative;
+    top: -10px;
 }
 
-#main_body_box_account {
-    border-radius: 0px;
-    background: #2686d0;
-    width: 94vw;
-    height: 80vh;
-    margin: auto;
-    position: relative;
-}
 
 #main_body_box #main_home_box_left {
     border-radius: 25px;
@@ -173,7 +187,7 @@ h2.center {
 #main_home_box_right img{
     float: left;
     width: 150px;
-    height: 70px;
+    height: 100px;
     padding-left: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -189,14 +203,63 @@ h2.center {
     margin-bottom: 50px;
 }
 
+#main_home_box_left #noReviews {
+    margin-left: 100px;
+}
+
+#main_home_box_left #acountTitle{
+    margin-top: 20px;
+}
+
+#main_home_box_left #email{
+    margin-top: 30px;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#main_home_box_left #username{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#main_home_box_left #logout{
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    bottom: -250px;
+    margin-right: 10px;
+}
+
+#main_home_box_left #createdCourseTitle {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#userNotLoggedIn {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
 #main_home_box_left img{
     float: left;
     width: 150px;
-    height: 70px;
+    height: 100px;
     padding-left: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-right: none;
+}
+
+#main_home_box_left #courseNotReviewedTitle{
+    margin-top: 20px;
+}
+
+#main_home_box_left #noCoursesReviewed{
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 40px;
 }
 
 #click_to_review {
@@ -214,7 +277,7 @@ h2.center {
 }
 
 nav ul {
-    height:350px;
+    height:400px;
     width:730px;
     overflow: scroll;
     overflow-x: hidden;
@@ -229,26 +292,39 @@ nav ul {
     background-color: #d9d9d9;
     text-align: left;
     resize: none;
+    margin-top: 70px;
+}
+
+#main_home_box_right #homeCourseHeading{
+    margin-top: 20px;
+}
+
+#main_home_box_right #accountRight{
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 30px;
 }
 
 #main_home_box_right #review{
     margin-left:350px;
     margin-right:auto;
+    margin-top: 20px;
 }
 
 #main_home_box_right #submitButton{
     position: absolute;
-    bottom: 50px;
-    left: 600px;
+    bottom: 60px;
+    left: 615px;
     margin-top: 25px;
     height: 30px;
-    width: 90px;
+    width: 100px;
     background-color: #d9d9d9;
 }
 
 #main_home_box_right #createNewCourse {
     text-align: center;
     position: relative;
+    margin-top: 20px;
 }
 
 #main_home_box_right #IDtext {
@@ -363,6 +439,7 @@ input[type="file"] {
 
 #main_home_box_left #courseTitle{
     text-align: center;
+    padding-top: 20px;
 }
 #main_home_box_left #reviews{
     white-space: normal;
@@ -370,6 +447,12 @@ input[type="file"] {
     position: relative;
     top: 0px;
     max-width: 400px;
+}
+
+#main_home_box_left #reviewsTitle{
+    margin-top: 40px;
+    margin-left: 10px;
+    font-size: 25px;
 }
 
 .scroll_for_reviews {
@@ -435,7 +518,7 @@ input[type="file"] {
 #main_body_box_account #submit_register_form {
     border-radius: 25px;
     background: #60a4dc;
-    width: 9vw;
+    width: 10vw;
     left: 118px;
     height: 60px;
     position: absolute;
