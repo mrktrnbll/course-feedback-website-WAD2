@@ -143,9 +143,11 @@ def restricted(request):
 
 
 def account(request):
-    student = request.user.profile  # get the profile of the logged in user
-    reviews = Review.objects.filter(student=student)  # get all reviews made by the student
+    student_or_lecturer = request.user.profile  # get the profile of the logged in user
+    reviews = Review.objects.filter(student=student_or_lecturer)  # get all reviews made by the student
     context_dict = {'reviews': reviews}
+    createdCourses = Course.objects.filter(lecturer=student_or_lecturer)
+    context_dict['createdCourses'] = createdCourses
     return render(request, 'course_feedback/account.html', context_dict)
 
 
