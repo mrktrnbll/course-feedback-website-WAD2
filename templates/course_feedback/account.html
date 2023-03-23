@@ -6,17 +6,18 @@
 {% endblock %}
 
 {% block home_box_left_block %}
-    <h1> Hi {{ user.username }} !</h1>
+    <h2 class=center id="acountTitle"> Your Account</h2>
     <br />
-    <h2> Your email:</h2>
-        <ul> {{ user.email }} </ul>
+    <p id="email"> Your email: {{ user.email }}</h2>
     <br />
-    <h2><a href="{% url 'course_feedback:logout' %}">Logout</a></h2>
+    <p id="username"> Your username: {{ user.username }}</h2>
+    <br />
+    <p id="logout"><a href="{% url 'course_feedback:logout' %}">Logout</a></h2>
 {% endblock %}
 
 {% block home_box_right_block %}
     {% if user.profile.get_is_lecturer is False %}
-    <h2>Your Reviews:</h2>
+    <h2 id="accountRight">Your Reviews:</h2>
         {% if reviews %}
         <nav>
             <ul class="scroll_for_reviews_account">
@@ -27,6 +28,22 @@
         </nav>
         {% else %}
             <p>You haven't written any reviews yet.</p>
+        {% endif %}
+    {% else %}
+        <h2 id="accountRight">Your Created Courses:</h2>
+        {% if createdCourses %}
+        <nav>
+            <ul>
+            {% for course in createdCourses %}
+                <li id="courses">
+                    <img src="{{ MEDIA_URL }}{{ course.picture }}" alt="Picture of a Course"/>
+                    <a id="course_link" href="{% url 'course_feedback:show_course' course.slug %}">{{ course.courseID }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
+        {% else %}
+            <p>You haven't created any courses.</p>
         {% endif %}
     {% endif %}
 {% endblock %}

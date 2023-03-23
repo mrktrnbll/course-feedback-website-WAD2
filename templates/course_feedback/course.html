@@ -12,7 +12,7 @@
 {% block home_box_left_block %}
     {% if course %}
         <h1 id="courseTitle">{{ course.name }}</h1>
-        <h3 style="position: relative;">Reviews:</h3>
+        <p id="reviewsTitle">Reviews:</p>
         {% if reviews %}
         <ul class="scroll_for_reviews">
             {% for review in reviews %}
@@ -37,8 +37,8 @@
 
 {% block home_box_right_block %}
     {% if not user.is_authenticated %}
-        <p>You aren't logged in yet!</p>
-        <p>Register or log in to leave a review!</p>
+        <p id="userNotLoggedIn">You aren't logged in yet!</p>
+        <p id="userNotLoggedIn">Register or log in to leave a review!</p>
     {% elif user.is_active %}
         {% if user.profile.get_is_lecturer is False %}
         <h3 id="review">Review:</h3> 
