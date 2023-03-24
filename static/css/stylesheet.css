@@ -555,8 +555,8 @@ input#picture + label:hover{
     margin-left: 20px;
 }
 
-#mostUpVotedReview{
-    margin-top: 20px;
+#main_home_box_right #mostUpVotedReview{
+    margin-top: -10px;
     font-size: 20px;
     text-align: center;
 }
