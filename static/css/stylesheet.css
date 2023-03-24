@@ -223,13 +223,20 @@ h2.center {
 }
 
 #main_home_box_left #logout{
-    color: #1a1d20;
+    color: #00003f;
     font-size: 20px;
     text-align: center;
     position: relative;
-    bottom: -250px;
+    bottom: -230px;
     margin-right: 10px;
 }
+
+#main_home_box_left #accountType{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
 
 #main_home_box_left #createdCourseTitle {
     padding-top: 20px;
@@ -242,6 +249,11 @@ h2.center {
     font-weight: bold;
 }
 
+#userNotAllocatedRole {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+}
 #main_home_box_left img{
     float: left;
     width: 150px;
@@ -533,4 +545,18 @@ input#picture + label:hover{
     left: 270px;
     height: 60px;
     position: absolute;
+}
+
+#png{
+    font-size: 13px;
+}
+
+#noCreatedCourses{
+    margin-left: 20px;
+}
+
+#mostUpVotedReview{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
 }

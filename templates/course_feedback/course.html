@@ -50,7 +50,12 @@
         </form>
         {% else %}
             <p id="noReviews">Number of reviews: {{ course.num_reviews }}</p>  <!--Lectuers and unallocated users see this -->
-            <p id="mostUpVoted">Most Upvoted review: {{ reviews.upvotes.MAX }}
+            <p id="mostUpVoted">Most Upvoted review:</p> 
+            {% if most_upvoted_review %}
+                <br /><p id="mostUpVotedReview">{{ most_upvoted_review }}</p>
+            {% else %}
+                <br /><p id="mostUpVotedReview">No reviews in this course</p>
+            {% endif %}
         {% endif %}
     {% else %}
         <h3>You aren't logged in yet!</h3>

@@ -39,6 +39,8 @@ def show_course(request, course_name_slug):
     try:
         course = Course.objects.get(slug=course_name_slug)
         reviews = Review.objects.filter(course=course)
+        most_upvoted_review = Review.objects.filter(course=course).order_by('-upvotes').first()
+        context_dict['most_upvoted_review'] = most_upvoted_review
         context_dict['reviews'] = reviews
         context_dict['course'] = course
     except Course.DoesNotExist:
