@@ -375,7 +375,12 @@ nav ul {
     font-size: 20px;
 }
 
-#main_home_box_right #picture {
+
+input#picture{
+    display: none;
+}
+
+input#picture + label{
     position: relative;
     top: -20px;
     float: right;
@@ -385,8 +390,9 @@ nav ul {
     background-color: #d9d9d9;
 }
 
-input[type="file"] {
-    display: none;
+input#picture + label:hover{
+    background-color: #adadad;
+    cursor: pointer;
 }
 
 #main_home_box_right .custom-file-upload {
@@ -394,7 +400,6 @@ input[type="file"] {
     background-color: #d9d9d9;
     display: inline-block;
     text-align: center;
-    cursor: pointer;
     position: relative;
     float: right;
     top: -20px;
@@ -406,7 +411,7 @@ input[type="file"] {
 #main_home_box_right #span {
     position: relative;
     top:-15px;
-    left: 165px;
+    left: 155px;
     float: right;
     height: 55px;
     width: 450px;
