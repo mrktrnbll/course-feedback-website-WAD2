@@ -502,14 +502,12 @@ input#picture + label:hover{
 #main_body_box_account #login_boxes {
     border-radius: 10px;
     height: 30px;
-    /*width: 200px;*/
 }
 
 #main_body_box_account .register_boxes {
     border-radius: 10px;
     height: 30px;
     width: 360px;
-    /*width: 200px;*/
 }
 
 #main_body_box_account #submit_account_form {

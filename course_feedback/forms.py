@@ -4,8 +4,6 @@ from course_feedback.models import Profile, Course, Review
 
 
 class RegisterForm(forms.ModelForm):
-    # username = forms.CharField(help_text="Username")
-    # email = forms.CharField(help_text="Email")
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'register_boxes',}))
 
     class Meta:
@@ -33,14 +31,10 @@ class RegisterProfileForm(forms.ModelForm):
         }
 
         widgets = {
-            # 'is_lecurer': forms.Select(attrs={'id': 'register_boxes'}),
         }
 
 
 class LoginForm(forms.ModelForm):
-    # username = forms.CharField(help_text="Username")
-    # password = forms.CharField(widget=forms.PasswordInput(), help_text="Password")
-
     class Meta:
         model = User
         fields = ('username', 'password',)
