@@ -19,7 +19,7 @@ def populate():
     courses = {'CS1P': {'name': 'Computer Programming', 'reviewed': True, 'picture':'course_images/cs1p.png'},
             'WAD2': {'name':'Web App Development', 'reviewed': True, 'picture':'course_images/wad2.png'},
             'IOOP': {'name': 'Introduction to Object Oriented Programming', 'reviewed': True, 'picture':'course_images/IOOP.png'},
-            'OOSE': {'name': 'Object Oriented Software Engineering', 'reviewed':False, 'picture':'course_images/OOSE.png'}}
+            'OOSE': {'name': 'Object Oriented Software Engineering', 'reviewed': False, 'picture':'course_images/OOSE.png'}}
 
     students = [{'username':'simon','password':'Bigman1!','email':'simon@live.co.uk'}]
 

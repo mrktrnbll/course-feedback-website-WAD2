@@ -6,8 +6,6 @@ class Profile(models.Model):
     # User model instance deals with id, username, password, email
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # Django already has something called is_staff which does something we don't want
-    # So I have changed name to isLecturer for clarity
     is_lecturer = models.NullBooleanField(default=None)
     # Default = None means they are neither student nor lecturer
     # If set to True, then they have lecturer permissions, if set to false they have student permissions

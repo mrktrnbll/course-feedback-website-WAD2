@@ -76,7 +76,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect(reverse('course_feedback:index'))  #should it be course_feedback:home
+                return redirect(reverse('course_feedback:index'))
             else:
                 return HttpResponse("Your Campus Opinion account is disabled.")
         else:
@@ -137,8 +137,8 @@ def restricted(request):
 
 
 def account(request):
-    student_or_lecturer = request.user.profile  # get the profile of the logged in user
-    reviews = Review.objects.filter(student=student_or_lecturer)  # get all reviews made by the student
+    student_or_lecturer = request.user.profile 
+    reviews = Review.objects.filter(student=student_or_lecturer)
     context_dict = {'reviews': reviews}
     createdCourses = Course.objects.filter(lecturer=student_or_lecturer)
     context_dict['createdCourses'] = createdCourses
@@ -162,4 +162,3 @@ class LikeCourseView(View):
         review.save()
 
         return HttpResponse("")
-        # return HttpResponse(review.upvotes)
