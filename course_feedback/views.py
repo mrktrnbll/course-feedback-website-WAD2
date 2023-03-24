@@ -111,29 +111,6 @@ def register(request):
         profile_form = RegisterProfileForm()
     return render(request, 'course_feedback/register.html', context={'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
 
-@login_required
-def add_course(request):
-    if request.method == 'POST':
-        course_form = AddCourse(request.POST, request.FILES)
-        print(course_form.is_valid())
-        print(request.FILES['picture'])
-        if course_form.is_valid():
-            course_form.save()
-            print(request.FILES)
-            if 'picture' in request.FILES:
-                course_form.picture = request.FILES['picture']
-            course_form.save()
-            return redirect(reverse('course_feedback:index'))
-        else:
-            print(course_form.errors)
-    else:
-        course_form = AddCourse()
-    return render(request, 'course_feedback/add_course.html', context={'course_form': course_form})
-
-
-@login_required
-def restricted(request):
-    return render(request, 'course_feedback/restricted.html')
 
 
 def account(request):

@@ -11,7 +11,7 @@
         <p id="userNotLoggedIn">Register or login in order to see more content.</p>
     {% elif user.is_active %}
         {% if user.profile.get_is_lecturer is True %}
-            <h2 class="center" id="createdCourseTitle">Created Courses</h2>
+            <h2 class="center" id="createdCourseTitle">Courses</h2>
         {% if courses %}
         <nav>
             <ul>
