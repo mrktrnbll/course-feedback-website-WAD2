@@ -12,7 +12,14 @@
     <br />
     <p id="username"> Your username: {{ user.username }}</h2>
     <br />
-    <p id="logout"><a href="{% url 'course_feedback:logout' %}" style="color: #1a1e21">Logout</a></h2>
+    {% if user.profile.get_is_lecturer is False %}
+        <p id="accountType"> Your account type: Student</h2>
+    {% elif user.profile.get_is_lecturer is True %}
+        <p id="accountType"> Your account type: Lecturer</h2>
+    {% else %}
+        <p id="accountType"> Your account type: Not Allocated</h2>
+    {% endif %}
+    <p id="logout"><a href="{% url 'course_feedback:logout' %}">Logout</a></h2>
 {% endblock %}
 
 {% block home_box_right_block %}
@@ -27,9 +34,9 @@
             </ul>
         </nav>
         {% else %}
-            <p>You haven't written any reviews yet.</p>
+            <p id="noCreatedCourses">You haven't written any reviews yet.</p>
         {% endif %}
-    {% else %}
+    {% elif user.profile.get_is_lecturer is True %}
         <h2 id="accountRight">Your Created Courses:</h2>
         {% if createdCourses %}
         <nav>
@@ -43,7 +50,9 @@
             </ul>
         </nav>
         {% else %}
-            <p>You haven't created any courses.</p>
+            <p id="noCreatedCourses">You haven't created any courses.</p>
         {% endif %}
+    {% else %}
+        <p id="userNotAllocatedRole">Once you have been allocated a role you will see personalised content</p>
     {% endif %}
 {% endblock %}
