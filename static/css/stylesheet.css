@@ -536,3 +536,7 @@ input#picture + label:hover{
     height: 60px;
     position: absolute;
 }
+
+#png{
+    font-size: 13px;
+}
